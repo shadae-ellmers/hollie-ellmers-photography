@@ -1,0 +1,73 @@
+'use client'
+
+import React, { useCallback } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
+import Image from 'next/image'
+import ArrowLeftIcon from './ArrowLeftIcon'
+import ArrowRightIcon from './ArrowRightIcon'
+
+const slides = [
+  '/images/wedding-1.jpeg',
+  '/images/wedding-2.jpg',
+  '/images/wedding-3.jpeg',
+  '/images/wedding-4.jpeg',
+  '/images/wedding-5.jpeg',
+]
+
+export default function Carousel() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: 'center',
+  })
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev()
+  }, [emblaApi])
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext()
+  }, [emblaApi])
+
+  return (
+    <div className="embla overflow-hidden pt-8 pb-16">
+      <div className="flex flex-row justify-center mb-8">
+        <button
+          className="embla__prev fill-olive hover:bg-olive hover:fill-amber-50 p-3 rounded-full cursor-pointer"
+          onClick={scrollPrev}
+        >
+          <ArrowLeftIcon />
+          <span className="hidden">Previous</span>
+        </button>
+        <h2 className="text-xl lg:text-2xl px-4 flex flex-col justify-center">
+          WEDDINGS
+        </h2>
+        <button
+          className="embla__next fill-olive hover:bg-olive hover:fill-amber-50 p-3 rounded-full cursor-pointer"
+          onClick={scrollNext}
+        >
+          <ArrowRightIcon />
+          <span className="hidden">Next</span>
+        </button>
+      </div>
+      <div className="embla__viewport" ref={emblaRef}>
+        <div className="embla__container flex">
+          {slides.map((src: string, index: number) => {
+            return (
+              <div key={index} className="embla__slide flex-none mx-1 sm:mx-4">
+                <div className="relative w-[250px] h-[350px] lg:w-[370px] lg:h-[500px] overflow-hidden">
+                  <Image
+                    src={src}
+                    alt={`Slide ${index + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </div>
+  )
+}
