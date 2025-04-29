@@ -26,27 +26,23 @@ export default function Navigation() {
   return (
     <nav className="bg-transparent absolute w-full z-10 py-4 px-6 flex flex-row-reverse">
       <div className="flex justify-center md:w-full">
-        {!isHomePage ? (
-          <div className="text-amber-50 text-2xl font-bold">
-            <Link href="/">Hollie Ellmers Photography</Link>
+        <div className="flex flex-col justify-center">
+          {/* Navbar Menu (Desktop) */}
+          <div className="hidden md:flex md:flex-row md:flex-wrap lg:flex-nowrap justify-evenly w-full max-w-[1200px] gap-2">
+            {links.map((item, index: number) => (
+              <Link
+                key={index}
+                href={`${item.link}`}
+                className="text-amber-50 transition text-2xl lg:w-1/5 cursor-default flex flex-row justify-center"
+              >
+                <div className="px-10 py-1 w-min border-amber-50/30 cursor-pointer hover:bg-amber-50/80 hover:text-olive rounded-3xl">
+                  {item.title}
+                </div>
+              </Link>
+            ))}
           </div>
-        ) : (
-          <></>
-        )}
-        {/* Navbar Menu (Desktop) */}
-        <div className="hidden md:flex md:flex-row md:flex-wrap lg:flex-nowrap justify-evenly w-full max-w-[1200px] gap-2">
-          {links.map((item, index: number) => (
-            <Link
-              key={index}
-              href={`${item.link}`}
-              className="text-amber-50 transition text-2xl lg:w-1/5 cursor-default flex flex-row justify-center"
-            >
-              <div className="px-10 py-1 w-min border-amber-50/30 cursor-pointer hover:bg-amber-50/80 hover:text-olive rounded-3xl">
-                {item.title}
-              </div>
-            </Link>
-          ))}
         </div>
+
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
