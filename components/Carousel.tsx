@@ -35,7 +35,9 @@ export default function Carousel() {
           className="embla__prev fill-olive hover:bg-olive hover:fill-amber-50 p-3 rounded-full cursor-pointer"
           onClick={scrollPrev}
         >
-          <ArrowLeftIcon />
+          <div aria-hidden="true">
+            <ArrowLeftIcon />
+          </div>
           <span className="hidden">Previous</span>
         </button>
         <h2 className="text-xl lg:text-2xl px-4 flex flex-col justify-center">
@@ -45,7 +47,9 @@ export default function Carousel() {
           className="embla__next fill-olive hover:bg-olive hover:fill-amber-50 p-3 rounded-full cursor-pointer"
           onClick={scrollNext}
         >
-          <ArrowRightIcon />
+          <div aria-hidden="true">
+            <ArrowRightIcon />
+          </div>
           <span className="hidden">Next</span>
         </button>
       </div>
@@ -61,6 +65,7 @@ export default function Carousel() {
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 33vw"
+                    loading="lazy"
                   />
                 </div>
               </div>
