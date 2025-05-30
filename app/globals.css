@@ -26,3 +26,15 @@ body {
   background-color: black;
   color: white;
 }
+
+.masonry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -1rem;
+}
+
+.masonry-grid__column {
+  padding-left: 1rem;
+  background-clip: padding-box;
+}
