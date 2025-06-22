@@ -56,7 +56,7 @@ export default function Services() {
                 className="transition text-xl lg:text-2xl cursor-default flex justify-center"
               >
                 <div
-                  className={`px-10 py-1 w-min text-amber-50  cursor-pointer hover:bg-amber-50/80 hover:text-olive rounded-3xl ${
+                  className={`px-10 py-1 w-min text-amber-50 cursor-pointer hover:bg-amber-50/80 hover:text-olive rounded-3xl ${
                     activeService === index + 1
                       ? 'bg-amber-50 text-olive'
                       : 'bg-amber-50/10'

@@ -76,17 +76,19 @@ export default function Gallery() {
         imageSrc="/images/wedding-4.jpeg"
         imageAlt="wedding-4"
       />
-      <div className="px-6 sm:px-12 py-8 lg:text-lg justify-center flex bg-olive text-amber-50 flex-col">
-        <div className="flex flex-row flex-wrap justify-between lg:w-1/2 self-center pb-8">
+      <div className="px-6 sm:px-12 py-8 lg:text-lg flex flex-col justify-center text-center bg-olive text-amber-50">
+        <div className="flex flex-row flex-wrap justify-center w-full gap-4 self-center pb-8">
           {links.map((item, index: number) => (
             <button
               key={index}
-              className="transition text-2xl cursor-default flex flex-row justify-center"
+              className="transition text-xl lg:text-2xl cursor-default flex justify-center"
               onClick={() => setActiveFilter(item.title)}
             >
               <div
-                className={`px-10 py-1 w-min text-amber-50 border-amber-50/30 cursor-pointer hover:bg-amber-50/80 hover:text-olive rounded-3xl ${
-                  activeFilter === item.title ? 'bg-amber-50 text-olive' : ''
+                className={`px-10 py-1 w-min text-amber-50 cursor-pointer hover:bg-amber-50/80 hover:text-olive rounded-3xl ${
+                  activeFilter === item.title
+                    ? 'bg-amber-50 text-olive'
+                    : 'bg-amber-50/10'
                 }`}
               >
                 {item.title}
