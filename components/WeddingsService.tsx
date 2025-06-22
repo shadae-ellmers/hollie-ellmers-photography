@@ -4,8 +4,8 @@ import weddingServices from '../data/weddingServices.json'
 
 export default function WeddingsService() {
   return (
-    <div className="flex flex-col justify-center">
-      <div className="demo-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pb-8">
+    <div className="flex flex-col justify-center max-w-[1400px] mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pb-8 ">
         {weddingServices.map((item, index: number) => (
           <div
             className="bg-amber-50/80 rounded-sm overflow-hidden text-olive relative h-full flex flex-col justify-between"
@@ -40,5 +40,3 @@ export default function WeddingsService() {
     </div>
   )
 }
-
-// basic, classic, premium packages

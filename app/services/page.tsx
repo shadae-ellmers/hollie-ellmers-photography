@@ -11,7 +11,7 @@ const services = ['Weddings', 'Family', 'Events', 'Other']
 
 export default function Services() {
   const [displayDropdown, setDisplayDropdown] = useState(false)
-  const [activeService, setActiveService] = useState(0)
+  const [activeService, setActiveService] = useState(1)
 
   const displayDetails = (index: number) => {
     if (displayDropdown === true) {
@@ -24,6 +24,18 @@ export default function Services() {
     } else {
       setDisplayDropdown(!displayDropdown)
       setActiveService(index + 1)
+    }
+  }
+
+  const serviceSection = () => {
+    if (activeService === 1) {
+      return <WeddingsService />
+    } else if (activeService === 2) {
+      return <FamilyService />
+    } else if (activeService === 3) {
+      return <EventsService />
+    } else if (activeService === 4) {
+      return <OtherService />
     }
   }
 
@@ -56,10 +68,7 @@ export default function Services() {
             )
           })}
         </div>
-        {activeService === 1 ? <WeddingsService /> : <></>}
-        {activeService === 2 ? <FamilyService /> : <></>}
-        {activeService === 3 ? <EventsService /> : <></>}
-        {activeService === 4 ? <OtherService /> : <></>}
+        {serviceSection()}
       </div>
     </div>
   )
