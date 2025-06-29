@@ -36,14 +36,13 @@ export default function Home() {
       {/* Block three: testimony */}
       <div className="px-6 sm:px-12 py-8 bg-olive text-amber-50 text-center flex flex-col justify-center items-center">
         <p className="lg:text-lg lg:max-w-3/4">
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
-          et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-          felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
-          consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
-          nec, vulputate eget, arcu.
+          Honestly Hollie has such a good eye and is so amazing to work with!
+          She made me and my fiancé feel so comfortable during our first shoot,
+          cannot wait for her to shoot our wedding! Would highly recommend her
+          she&apos;s so fun and creative. She really knows how to guide you to
+          get the best photos and experience.
         </p>
-        <p className="mt-4 lg:max-w-3/4">- Happy Client</p>
+        <p className="mt-4 lg:max-w-3/4">- Tyla Whatarua</p>
       </div>
 
       {/* Block four: landscape image grid */}
