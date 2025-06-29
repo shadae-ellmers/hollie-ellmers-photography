@@ -84,7 +84,7 @@ export default function Navigation() {
             >
               <Link
                 href={`${item.link}`}
-                className="text-amber-50 text-xl transition flex flex-col justify-center"
+                className="text-amber-50 text-xl transition flex flex-col justify-center group-hover:text-amber-50/80"
               >
                 {item.title}
               </Link>
