@@ -9,7 +9,7 @@ import InstagramIcon from './InstagramIcon'
 export default function Footer() {
   return (
     <footer className="">
-      <div className="bg-olive text-amber-50 px-6 sm:px-12 py-8 flex flex-col sm:flex-row justify-center sm:justify-between gap-10 sm:gap-5">
+      <div className="bg-olive text-amber-50 px-6 sm:px-12 py-8 flex flex-col md:flex-row justify-center sm:justify-between gap-10 sm:gap-5">
         <div className="md:w-1/3 flex flex-row justify-center">
           <div className="flex flex-col justify-center fill-amber-50">
             <div aria-hidden="true">
@@ -18,7 +18,7 @@ export default function Footer() {
             <span className="hidden">Location: </span>
           </div>
           <p className="ml-2 h-full flex flex-col justify-center text-xl">
-            Wellington + Wairarapa
+            Wellington based
           </p>
         </div>
         <div className="md:w-1/3 text-center flex flex-col justify-center">
