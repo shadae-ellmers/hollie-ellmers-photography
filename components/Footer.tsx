@@ -68,19 +68,11 @@ export default function Footer() {
       </div>
 
       <div className="flex flex-row flex-wrap px-6 sm:px-12 py-2 text-xs bg-amber-50">
-        <Link className="underline" href="/terms-and-conditions">
-          TERMS & CONDITIONS
-        </Link>
+        <p>All content Copyright © 2025 Hollie Ellmers Photography</p>
         <span aria-hidden="true" className="px-2">
           |
         </span>
-        <Link className="underline" href="/privacy-policy">
-          PRIVACY POLICY
-        </Link>
-        <span aria-hidden="true" className="px-2">
-          |
-        </span>
-        <Link className="underline" href="/site-credit">
+        <Link className="underline" href="https://shadae-ellmers.com/">
           SITE CREDIT
         </Link>
       </div>
