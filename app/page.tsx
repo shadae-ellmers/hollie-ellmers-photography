@@ -1,5 +1,5 @@
 import Carousel from '@/components/Carousel'
-import HomeBanner from '@/components/HomeBanner'
+import PageBanner from '@/components/PageBanner'
 import Image from 'next/image'
 
 const images = [
@@ -12,7 +12,11 @@ const images = [
 export default function Home() {
   return (
     <div>
-      <HomeBanner />
+      <PageBanner
+        title="Hollie Ellmers Photography"
+        imageSrc="/images/wedding-1.jpeg"
+        imageAlt="wedding-1"
+      />
 
       {/* Block one: content */}
       <div className="px-6 sm:px-12 py-8 lg:text-lg">
