@@ -1,13 +1,14 @@
 'use client'
 
-import EventsService from '@/components/EventsService'
-import FamilyService from '@/components/FamilyService'
-import OtherService from '@/components/OtherService'
+import CouplesService from '@/components/Services/CouplesService'
+import EventsService from '@/components/Services/EventsService'
+import FamilyService from '@/components/Services/FamilyService'
+import OtherService from '@/components/Services/OtherService'
 import PageBanner from '@/components/PageBanner'
-import WeddingsService from '@/components/WeddingsService'
+import WeddingsService from '@/components/Services/WeddingsService'
 import { useState } from 'react'
 
-const services = ['Weddings', 'Family', 'Events', 'Other']
+const services = ['Weddings', 'Family', 'Events', 'Couples', 'Other']
 
 export default function Services() {
   const [displayDropdown, setDisplayDropdown] = useState(false)
@@ -35,6 +36,8 @@ export default function Services() {
     } else if (activeService === 3) {
       return <EventsService />
     } else if (activeService === 4) {
+      return <CouplesService />
+    } else if (activeService === 5) {
       return <OtherService />
     }
   }

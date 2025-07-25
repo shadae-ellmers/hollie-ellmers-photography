@@ -1,6 +1,6 @@
 'use client'
 
-import ArrowRightIcon from './ArrowRightIcon'
+import ArrowRightIcon from '../ArrowRightIcon'
 
 export default function OtherService() {
   return (

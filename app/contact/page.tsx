@@ -11,6 +11,7 @@ export default function Contact() {
         imageSrc="/images/wedding-1.jpeg"
         imageAlt="wedding-1"
       />
+      <style>{'.grecaptcha-badge { visibility: visible; }'}</style>
       <div className="px-6 sm:px-12 py-8 lg:text-lg">
         <p>
           Here is some information on how to enquire, or how to contact me

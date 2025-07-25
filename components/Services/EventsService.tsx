@@ -1,12 +1,12 @@
 'use client'
 
-import weddingServices from '../data/weddingServices.json'
+import eventsServices from '../../data/eventsServices.json'
 
-export default function WeddingsService() {
+export default function CouplesService() {
   return (
     <div className="flex flex-col justify-center max-w-[1400px] mx-auto">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pb-8 ">
-        {weddingServices.map((item, index: number) => (
+        {eventsServices.map((item, index: number) => (
           <div
             className="bg-amber-50/80 rounded-sm overflow-hidden text-olive relative h-full flex flex-col justify-between"
             key={index}
