@@ -92,9 +92,19 @@ export default function ContactForm() {
               <option value="Wedding">Wedding</option>
               <option value="Event">Event</option>
               <option value="Family">Family</option>
-              <option value="Pet">Pet</option>
+              <option value="Couples">Couples</option>
               <option value="Other">Other</option>
             </select>
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <label htmlFor="location">Location</label>
+            <input
+              id="location"
+              placeholder="Wellington"
+              type="text"
+              name="location"
+              className="border-2 border-olive rounded-sm w-full lg:w-1/2 py-2 px-4"
+            />
           </div>
           <div className="flex flex-row items-center justify-center gap-1">
             <label htmlFor="dateCheck">Do you have a specific date?</label>
