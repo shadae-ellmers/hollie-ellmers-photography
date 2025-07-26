@@ -107,7 +107,7 @@ export default function ContactForm() {
             />
           </div>
           <div className="flex flex-row items-center justify-center gap-1">
-            <label htmlFor="dateCheck">Do you have a specific date?</label>
+            <label htmlFor="dateCheck">Do you know the specific date?</label>
             <input
               id="dateCheck"
               type="checkbox"
