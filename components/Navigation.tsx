@@ -26,12 +26,16 @@ export default function Navigation() {
   const isHomePage = route === '/'
 
   return (
-    <nav className="bg-transparent absolute w-full z-10 py-4 px-6 flex flex-row-reverse">
-      <div className="flex justify-center md:w-full">
+    <nav className="bg-black/40 absolute w-full z-10 py-4 px-6 flex flex-row-reverse">
+      <div
+        className={`flex justify-center ${
+          !isHomePage ? 'w-full' : 'md:w-full'
+        }`}
+      >
         <div className="flex flex-col justify-center">
           {/* Navbar Menu (Desktop) */}
           <div
-            className="hidden md:flex md:flex-row md:flex-wrap lg:flex-nowrap justify-evenly w-full max-w-[1200px] gap-2"
+            className="hidden md:flex md:flex-row md:flex-wrap lg:flex-nowrap justify-evenly w-full max-w-[1200px] gap-4"
             aria-hidden={isMobile ? 'true' : 'false'}
           >
             {links.map((item, index: number) => (
@@ -49,7 +53,23 @@ export default function Navigation() {
         </div>
 
         {!isOpen && isMobile && (
-          <div className="md:hidden">
+          <div
+            className={`md:hidden ${
+              !isHomePage
+                ? 'flex flex-row justify-between text-amber-50 w-full'
+                : ''
+            }`}
+          >
+            {!isHomePage ? (
+              <a
+                href="/"
+                className="text-lg sm:text-2xl flex flex-col justify-center cursor-pointer"
+              >
+                <h1>Hollie Ellmers Photography</h1>
+              </a>
+            ) : (
+              <></>
+            )}
             <button
               onClick={toggleMenu}
               className="text-amber-50 hover:bg-olive p-2 rounded-full cursor-pointer"

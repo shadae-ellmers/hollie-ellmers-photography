@@ -73,7 +73,7 @@ export default function Gallery() {
     <div>
       <PageBanner
         title="Gallery"
-        imageSrc="/images/wedding-4.jpeg"
+        imageSrc="/images/gallery-banner.jpg"
         imageAlt="wedding-4"
       />
       <div className="px-6 sm:px-12 py-8 lg:text-lg flex flex-col justify-center text-center bg-olive text-amber-50">

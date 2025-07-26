@@ -8,7 +8,7 @@ export default function Contact() {
     <div>
       <PageBanner
         title="Get in touch"
-        imageSrc="/images/wedding-1.jpeg"
+        imageSrc="/images/contact-banner.jpg"
         imageAlt="wedding-1"
       />
       <style>{'.grecaptcha-badge { visibility: visible; }'}</style>
