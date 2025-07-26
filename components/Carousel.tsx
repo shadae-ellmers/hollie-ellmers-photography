@@ -7,11 +7,18 @@ import ArrowLeftIcon from './Icons/ArrowLeftIcon'
 import ArrowRightIcon from './Icons/ArrowRightIcon'
 
 const slides = [
-  '/images/wedding-1.jpeg',
-  '/images/wedding-2.jpg',
-  '/images/wedding-3.jpeg',
-  '/images/wedding-4.jpeg',
-  '/images/wedding-5.jpeg',
+  '/images/A&J-201.jpg',
+  '/images/A&J-138.jpg',
+  '/images/A&J-248.jpg',
+  '/images/DANA+ANDREW-180.jpg',
+  '/images/DANA+ANDREW-234.jpg',
+  '/images/c+j-0005.jpg',
+  '/images/KAYLA+CHRIS-417.jpg',
+  '/images/KAYLA+CHRIS-432.jpg',
+  '/images/J+D-006.jpg',
+  '/images/prev-417.jpg',
+  '/images/KAYLA+CHRIS-491.jpg',
+  '/images/TYLA&ISAAC-464.jpg',
 ]
 
 export default function Carousel() {
