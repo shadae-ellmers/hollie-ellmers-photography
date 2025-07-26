@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import useIsMobile from './useIsMobile'
 
 type PageBannerProps = {
   title: string
@@ -13,6 +14,8 @@ export default function PageBanner({
   imageSrc,
   imageAlt,
 }: PageBannerProps) {
+  const isMobile = useIsMobile()
+
   return (
     <div className="relative w-full h-[50vh] min-h-[300px] flex items-center justify-center text-amber-50">
       {/* Background Image */}
@@ -33,9 +36,15 @@ export default function PageBanner({
         <div className="relative inline-block">
           <div className="absolute inset-0 bg-black/40 blur-2xl rounded-md z-0"></div>
           <div className="relative z-10 px-4 py-2 bg-transparent">
-            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
-              {title}
-            </h2>
+            {isMobile ? (
+              <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
+                {title}
+              </h2>
+            ) : (
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
+                {title}
+              </h1>
+            )}
           </div>
         </div>
       </div>

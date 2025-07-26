@@ -1,8 +1,11 @@
 'use client'
 
 import weddingServices from '../../data/weddingServices.json'
+import useIsMobile from '../useIsMobile'
 
 export default function WeddingsService() {
+  const isMobile = useIsMobile()
+
   return (
     <div className="flex flex-col justify-center max-w-[1400px] mx-auto">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pb-8 ">
@@ -13,7 +16,11 @@ export default function WeddingsService() {
           >
             <div className="text-left">
               <div className="text-2xl flex flex-row flex-nowrap justify-between p-4">
-                <h3 className="pr-4">{item.label}</h3>
+                {isMobile ? (
+                  <h3 className="pr-4">{item.label}</h3>
+                ) : (
+                  <h2 className="pr-4">{item.label}</h2>
+                )}
                 <h3>💍</h3>
               </div>
               <ul className="p-4">
