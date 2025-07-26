@@ -29,14 +29,6 @@ export default function WeddingsService() {
           </div>
         ))}
       </div>
-      <ul className="text-left">
-        Addtional add-ons:
-        <li>
-          Extra travel per hour (one hour included in each package): $50 per
-          hour
-        </li>
-        <li>Addtional time: $300 per hour</li>
-      </ul>
     </div>
   )
 }

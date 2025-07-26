@@ -12,7 +12,7 @@ export default function Contact() {
         imageAlt="wedding-1"
       />
       <style>{'.grecaptcha-badge { visibility: visible; }'}</style>
-      <div className="px-6 sm:px-12 py-8 lg:text-lg">
+      <div className="px-6 sm:px-12 py-8 sm:py-16 lg:text-lg lg:max-w-[1000px] w-full flex flex-col justify-centre mx-auto">
         <p>
           Here is some information on how to enquire, or how to contact me
           outside this form.
