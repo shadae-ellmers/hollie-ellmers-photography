@@ -22,17 +22,22 @@ export default function PageBanner({
           alt={imageAlt}
           fill
           style={{ objectFit: 'cover' }}
-          loading="lazy"
+          priority
         />
         {/* Soft Overlay */}
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 text-center px-6">
-        <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
-          {title}
-        </h2>
+      <div className="relative z-10 text-center px-6 text-amber-50">
+        <div className="relative inline-block">
+          <div className="absolute inset-0 bg-black/40 blur-2xl rounded-md z-0"></div>
+          <div className="relative z-10 px-4 py-2 bg-transparent">
+            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
+              {title}
+            </h2>
+          </div>
+        </div>
       </div>
     </div>
   )

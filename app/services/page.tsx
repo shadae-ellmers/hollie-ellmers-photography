@@ -46,7 +46,7 @@ export default function Services() {
     <div>
       <PageBanner
         title="Services"
-        imageSrc="/images/wedding-5.jpeg"
+        imageSrc="/images/services-banner.jpg"
         imageAlt="wedding-5"
       />
       <div className="px-6 sm:px-12 py-8 lg:text-lg flex flex-col justify-center text-center bg-olive text-amber-50">

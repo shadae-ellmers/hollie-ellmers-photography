@@ -14,7 +14,7 @@ export default function Home() {
     <div>
       <PageBanner
         title="Hollie Ellmers Photography"
-        imageSrc="/images/wedding-1.jpeg"
+        imageSrc="/images/home-banner.jpg"
         imageAlt="wedding-1"
       />
 

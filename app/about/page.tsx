@@ -9,7 +9,7 @@ export default function About() {
     <div>
       <PageBanner
         title="About me"
-        imageSrc="/images/wedding-1.jpeg"
+        imageSrc="/images/about-banner.jpg"
         imageAlt="wedding-1"
       />
       <div className="px-6 sm:px-12 py-8 sm:py-16 lg:text-lg lg:max-w-[1000px] w-full flex flex-col justify-centre mx-auto">
