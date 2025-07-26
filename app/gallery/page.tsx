@@ -2,7 +2,7 @@
 
 import PageBanner from '@/components/PageBanner'
 import Image from 'next/image'
-import all from '../../data/all.json'
+import all from '../../data/allImages.json'
 import events from '../../data/events.json'
 import pets from '../../data/pets.json'
 import weddings from '../../data/weddings.json'

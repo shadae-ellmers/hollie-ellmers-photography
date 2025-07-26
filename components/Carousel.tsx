@@ -3,8 +3,8 @@
 import React, { useCallback } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Image from 'next/image'
-import ArrowLeftIcon from './ArrowLeftIcon'
-import ArrowRightIcon from './ArrowRightIcon'
+import ArrowLeftIcon from './Icons/ArrowLeftIcon'
+import ArrowRightIcon from './Icons/ArrowRightIcon'
 
 const slides = [
   '/images/wedding-1.jpeg',

@@ -1,10 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import LocationIcon from './LocationIcon'
-import EnvelopeIcon from './EnvelopeIcon'
-import FacebookIcon from './FacebookIcon'
-import InstagramIcon from './InstagramIcon'
+import LocationIcon from './Icons/LocationIcon'
+import EnvelopeIcon from './Icons/EnvelopeIcon'
+import FacebookIcon from './Icons/FacebookIcon'
+import InstagramIcon from './Icons/InstagramIcon'
 
 export default function Footer() {
   return (

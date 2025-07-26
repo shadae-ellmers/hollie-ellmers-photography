@@ -3,9 +3,9 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import HamburgerIcon from './HamburgerIcon'
-import CloseIcon from './CloseIcon'
-import ArrowRightIcon from './ArrowRightIcon'
+import HamburgerIcon from './Icons/HamburgerIcon'
+import CloseIcon from './Icons/CloseIcon'
+import ArrowRightIcon from './Icons/ArrowRightIcon'
 import useIsMobile from './useIsMobile'
 
 const links = [
