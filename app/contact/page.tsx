@@ -8,10 +8,11 @@ export default function Contact() {
     <div>
       <PageBanner
         title="Get in touch"
-        imageSrc="/images/wedding-1.jpeg"
+        imageSrc="/images/contact-banner.jpg"
         imageAlt="wedding-1"
       />
-      <div className="px-6 sm:px-12 py-8 lg:text-lg">
+      <style>{'.grecaptcha-badge { visibility: visible; }'}</style>
+      <div className="px-6 sm:px-12 py-8 sm:py-16 lg:text-lg lg:max-w-[1000px] w-full flex flex-col justify-centre mx-auto">
         <p>
           Here is some information on how to enquire, or how to contact me
           outside this form.

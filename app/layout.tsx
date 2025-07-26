@@ -30,7 +30,8 @@ export default function RootLayout({
         />
       </head>
       <body className={`${poppins.variable} antialiased`}>
-        <header className="absolute top-0 left-0 w-full z-50 bg-amber-50 shadow-md">
+        <style>{'.grecaptcha-badge { visibility: hidden; }'}</style>
+        <header className="absolute top-0 w-full z-50 bg-amber-50 shadow-md">
           <Navigation />
         </header>
         <main className="text-olive text-md">{children}</main>

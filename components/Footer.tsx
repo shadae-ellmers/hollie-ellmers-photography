@@ -1,21 +1,24 @@
 'use client'
 
 import Link from 'next/link'
-import LocationIcon from './LocationIcon'
-import EnvelopeIcon from './EnvelopeIcon'
-import FacebookIcon from './FacebookIcon'
-import InstagramIcon from './InstagramIcon'
+import LocationIcon from './Icons/LocationIcon'
+import EnvelopeIcon from './Icons/EnvelopeIcon'
+import FacebookIcon from './Icons/FacebookIcon'
+import InstagramIcon from './Icons/InstagramIcon'
 
 export default function Footer() {
   return (
     <footer className="">
-      <div className="bg-olive text-amber-50 px-6 sm:px-12 py-8 flex flex-col sm:flex-row justify-center sm:justify-between gap-10 sm:gap-5">
+      <div className="bg-olive text-amber-50 px-6 sm:px-12 py-8 flex flex-col md:flex-row justify-center sm:justify-between gap-10 sm:gap-5">
         <div className="md:w-1/3 flex flex-row justify-center">
           <div className="flex flex-col justify-center fill-amber-50">
-            <LocationIcon />
+            <div aria-hidden="true">
+              <LocationIcon />
+            </div>
+            <span className="hidden">Location: </span>
           </div>
           <p className="ml-2 h-full flex flex-col justify-center text-xl">
-            Wellington
+            Wellington based
           </p>
         </div>
         <div className="md:w-1/3 text-center flex flex-col justify-center">
@@ -26,8 +29,12 @@ export default function Footer() {
             href="mailto:hollieellmersphotography@gmail.com"
             className="flex flex-col justify-center"
             target="_blank"
+            aria-label="Send email"
           >
-            <div className="p-2 rounded-full fill-amber-50 hover:bg-amber-50 hover:fill-olive">
+            <div
+              className="p-2 rounded-full fill-amber-50 hover:bg-amber-50 hover:fill-olive"
+              aria-hidden="true"
+            >
               <EnvelopeIcon />
             </div>
           </a>
@@ -35,13 +42,25 @@ export default function Footer() {
             href="https://www.facebook.com/HollieWinterPhotography/"
             className="flex flex-col justify-center"
             target="_blank"
+            aria-label="Visit Facebook profile"
           >
-            <div className="p-2 rounded-full fill-amber-50 hover:bg-amber-50 hover:fill-olive">
+            <div
+              className="p-2 rounded-full fill-amber-50 hover:bg-amber-50 hover:fill-olive"
+              aria-hidden="true"
+            >
               <FacebookIcon />
             </div>
           </a>
-          <a href="#" className="flex flex-col justify-center" target="_blank">
-            <div className="p-2 rounded-full fill-amber-50 hover:bg-amber-50 hover:fill-olive">
+          <a
+            href="#"
+            className="flex flex-col justify-center"
+            target="_blank"
+            aria-label="Visit Instagram profile"
+          >
+            <div
+              className="p-2 rounded-full fill-amber-50 hover:bg-amber-50 hover:fill-olive"
+              aria-hidden="true"
+            >
               <InstagramIcon />
             </div>
           </a>
@@ -49,19 +68,11 @@ export default function Footer() {
       </div>
 
       <div className="flex flex-row flex-wrap px-6 sm:px-12 py-2 text-xs bg-amber-50">
-        <Link className="underline" href="/terms-and-conditions">
-          TERMS & CONDITIONS
-        </Link>
+        <p>All content Copyright © 2025 Hollie Ellmers Photography</p>
         <span aria-hidden="true" className="px-2">
           |
         </span>
-        <Link className="underline" href="/privacy-policy">
-          PRIVACY POLICY
-        </Link>
-        <span aria-hidden="true" className="px-2">
-          |
-        </span>
-        <Link className="underline" href="/site-credit">
+        <Link className="underline" href="https://shadae-ellmers.com/">
           SITE CREDIT
         </Link>
       </div>

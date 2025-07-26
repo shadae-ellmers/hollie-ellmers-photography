@@ -3,15 +3,22 @@
 import React, { useCallback } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Image from 'next/image'
-import ArrowLeftIcon from './ArrowLeftIcon'
-import ArrowRightIcon from './ArrowRightIcon'
+import ArrowLeftIcon from './Icons/ArrowLeftIcon'
+import ArrowRightIcon from './Icons/ArrowRightIcon'
 
 const slides = [
-  '/images/wedding-1.jpeg',
-  '/images/wedding-2.jpg',
-  '/images/wedding-3.jpeg',
-  '/images/wedding-4.jpeg',
-  '/images/wedding-5.jpeg',
+  '/images/A&J-201.jpg',
+  '/images/A&J-138.jpg',
+  '/images/A&J-248.jpg',
+  '/images/DANA+ANDREW-180.jpg',
+  '/images/DANA+ANDREW-234.jpg',
+  '/images/c+j-0005.jpg',
+  '/images/KAYLA+CHRIS-417.jpg',
+  '/images/KAYLA+CHRIS-432.jpg',
+  '/images/J+D-006.jpg',
+  '/images/prev-417.jpg',
+  '/images/KAYLA+CHRIS-491.jpg',
+  '/images/TYLA&ISAAC-464.jpg',
 ]
 
 export default function Carousel() {
@@ -35,7 +42,9 @@ export default function Carousel() {
           className="embla__prev fill-olive hover:bg-olive hover:fill-amber-50 p-3 rounded-full cursor-pointer"
           onClick={scrollPrev}
         >
-          <ArrowLeftIcon />
+          <div aria-hidden="true">
+            <ArrowLeftIcon />
+          </div>
           <span className="hidden">Previous</span>
         </button>
         <h2 className="text-xl lg:text-2xl px-4 flex flex-col justify-center">
@@ -45,7 +54,9 @@ export default function Carousel() {
           className="embla__next fill-olive hover:bg-olive hover:fill-amber-50 p-3 rounded-full cursor-pointer"
           onClick={scrollNext}
         >
-          <ArrowRightIcon />
+          <div aria-hidden="true">
+            <ArrowRightIcon />
+          </div>
           <span className="hidden">Next</span>
         </button>
       </div>
@@ -61,6 +72,7 @@ export default function Carousel() {
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 33vw"
+                    loading="lazy"
                   />
                 </div>
               </div>

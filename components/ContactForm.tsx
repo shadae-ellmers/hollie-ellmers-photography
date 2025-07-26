@@ -56,8 +56,9 @@ export default function ContactForm() {
           className="flex flex-col justify-center gap-4 w-full"
         >
           <div className="flex flex-col items-center gap-1">
-            <label>Name</label>
+            <label htmlFor="name">Name</label>
             <input
+              id="name"
               placeholder="John Smith"
               type="text"
               name="name"
@@ -66,8 +67,9 @@ export default function ContactForm() {
             />
           </div>
           <div className="flex flex-col items-center gap-1">
-            <label>Email</label>
+            <label htmlFor="email">Email</label>
             <input
+              id="email"
               placeholder="john.smith@gmail.com"
               type="email"
               name="email"
@@ -76,8 +78,9 @@ export default function ContactForm() {
             />
           </div>
           <div className="flex flex-col items-center gap-1">
-            <label>Enquiry type</label>
+            <label htmlFor="enquiry">Enquiry type</label>
             <select
+              id="enquiry"
               name="enquiry"
               className="border-2 border-olive rounded-sm w-full lg:w-1/2 py-2 px-4"
               required
@@ -89,13 +92,24 @@ export default function ContactForm() {
               <option value="Wedding">Wedding</option>
               <option value="Event">Event</option>
               <option value="Family">Family</option>
-              <option value="Pet">Pet</option>
+              <option value="Couples">Couples</option>
               <option value="Other">Other</option>
             </select>
           </div>
-          <div className="flex flex-row items-center justify-center gap-1">
-            <label>Do you have a specific date?</label>
+          <div className="flex flex-col items-center gap-1">
+            <label htmlFor="location">Location</label>
             <input
+              id="location"
+              placeholder="Wellington"
+              type="text"
+              name="location"
+              className="border-2 border-olive rounded-sm w-full lg:w-1/2 py-2 px-4"
+            />
+          </div>
+          <div className="flex flex-row items-center justify-center gap-1">
+            <label htmlFor="dateCheck">Do you know the specific date?</label>
+            <input
+              id="dateCheck"
               type="checkbox"
               name="dateCheck"
               className="ml-2"
@@ -108,16 +122,18 @@ export default function ContactForm() {
             }`}
             aria-hidden={dateField ? false : true}
           >
-            <label>Event date</label>
+            <label htmlFor="date">Event date</label>
             <input
+              id="date"
               type="date"
               name="date"
               className="border-2 border-olive rounded-sm w-full lg:w-1/2 py-2 px-4"
             />
           </div>
           <div className="flex flex-col items-center gap-1">
-            <label>Message</label>
+            <label htmlFor="message">Message</label>
             <textarea
+              id="message"
               placeholder="Let me know the details..."
               name="message"
               className="border-2 border-olive rounded-sm w-full lg:w-1/2 py-2 px-4 h-50"
