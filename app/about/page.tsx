@@ -12,7 +12,7 @@ export default function About() {
         imageSrc="/images/wedding-1.jpeg"
         imageAlt="wedding-1"
       />
-      <div className="px-6 sm:px-12 py-8 lg:text-lg lg:max-w-[1000px] w-full flex flex-col justify-centre mx-auto">
+      <div className="px-6 sm:px-12 py-8 sm:py-16 lg:text-lg lg:max-w-[1000px] w-full flex flex-col justify-centre mx-auto">
         <div className="flex flex-col md:flex-row">
           <div className="flex flex-row justify-center md:block md:w-2/5">
             <div className="relative rounded-full w-auto max-w-[300px] md:max-w-[500px] aspect-square h-auto overflow-hidden md:float-right">

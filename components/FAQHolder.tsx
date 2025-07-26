@@ -25,10 +25,10 @@ export default function FAQHolder() {
               key={index}
             >
               <button
-                className="flex flex-row justify-between w-full cursor-pointer px-6 py-4"
+                className="flex flex-row justify-between flex-nowrap w-full cursor-pointer px-6 py-4 text-left"
                 onClick={() => toggleFAQ(index)}
               >
-                <h4>{item.title}</h4>
+                <h4 className="flex flex-col justify-center">{item.title}</h4>
                 <div
                   className={`fill-olive flex flex-col justify-center transition-transform duration-300 ${
                     isActive ? 'rotate-45' : ''
@@ -37,7 +37,6 @@ export default function FAQHolder() {
                   <PlusIcon />
                 </div>
               </button>
-
               <div
                 className={`px-6 overflow-hidden transition-all duration-500 ease-in-out ${
                   isActive ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
