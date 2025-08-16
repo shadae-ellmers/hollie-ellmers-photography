@@ -1,73 +1,144 @@
-'use client'
-
 import PageBanner from '@/components/PageBanner'
-import Image from 'next/image'
-import all from '../../data/allImages.json'
-import events from '../../data/events.json'
-import pets from '../../data/pets.json'
-import weddings from '../../data/weddings.json'
-import { FormEvent, useState } from 'react'
-import Masonry from 'react-masonry-css'
-import { Fancybox } from '@fancyapps/ui'
-import '@fancyapps/ui/dist/fancybox/fancybox.css'
+import GalleryFilter from '@/components/GalleryFilter'
+import InfiniteMasonry from '@/components/InfiniteMasonry'
+import { list } from '@vercel/blob'
 
-export default function Gallery() {
-  const [activeFilter, setActiveFilter] = useState('All')
+const IMAGE_FILE_PATTERN = /\.(jpe?g|png|gif|webp|avif|svg|tiff?)$/i
 
-  const links = [
-    { title: 'All' },
-    { title: 'Weddings' },
-    { title: 'Pets' },
-    { title: 'Events' },
-  ]
+const FILTER_LABEL_ALL = 'All'
 
-  const getBreakpointsAndCols = {
-    default: 4,
-    1024: 3,
-    768: 2,
-    480: 1,
+const capitalise = (text: string) =>
+  text.charAt(0).toUpperCase() + text.slice(1)
+
+const normaliseLabel = (text: string) => capitalise(text.trim().toLowerCase())
+
+const getImageWeight = (pathname: string) => {
+  const matchResult = pathname.match(/^[^/]+\/(\d{3,})-/)
+  return matchResult ? parseInt(matchResult[1], 10) : Number.POSITIVE_INFINITY
+}
+
+const shuffleArray = <T,>(items: T[]): T[] => {
+  const shuffled = items.slice()
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
   }
+  return shuffled
+}
 
-  const getImages = () => {
-    if (activeFilter === 'Weddings') {
-      return weddings
-    } else if (activeFilter === 'Pets') {
-      return pets
-    } else if (activeFilter === 'Events') {
-      return events
-    } else {
-      return all
+const parseFolderInfo = (folderName: string) => {
+  const matchResult = folderName.match(/^(\d{3,})-(.+)$/)
+  if (!matchResult) {
+    return {
+      folderKey: folderName,
+      displayLabel: capitalise(folderName),
+      sortWeight: Number.POSITIVE_INFINITY,
     }
   }
+  const [, weightString, rawLabel] = matchResult
+  return {
+    folderKey: folderName,
+    displayLabel: capitalise(rawLabel),
+    sortWeight: parseInt(weightString, 10),
+  }
+}
 
-  const launchLightbox = (e: FormEvent) => {
-    e.preventDefault()
-    Fancybox.bind('[data-fancybox]')
+const orderImagesByWeightWithShuffle = <T extends { pathname: string }>(
+  images: T[]
+): T[] => {
+  const imagesByWeight = new Map<number, T[]>()
+  for (const image of images) {
+    const weight = getImageWeight(image.pathname)
+    const bucket = imagesByWeight.get(weight) ?? []
+    bucket.push(image)
+    imagesByWeight.set(weight, bucket)
+  }
+  const weightsSortedAscending = Array.from(imagesByWeight.keys()).sort(
+    (a, b) => a - b
+  )
+  const ordered: T[] = []
+  for (const weight of weightsSortedAscending) {
+    ordered.push(...shuffleArray(imagesByWeight.get(weight)!))
+  }
+  return ordered
+}
+
+type MetadataMap = Record<string, { alt?: string; caption?: string }>
+
+export default async function Gallery({
+  searchParams,
+}: {
+  searchParams: Promise<{ filter?: string }>
+}) {
+  const searchParam = await searchParams
+  const requestedFilterLabel = (
+    searchParam?.filter ?? FILTER_LABEL_ALL
+  ).toString()
+
+  const { blobs: allBlobs } = await list()
+
+  let metadataMap: MetadataMap = {}
+  const metadataBlob = allBlobs.find((blob) =>
+    blob.pathname.endsWith('metadata.json')
+  )
+  if (metadataBlob?.url) {
+    try {
+      const response = await fetch(metadataBlob.url, {
+        next: { revalidate: 300 },
+      })
+      if (response.ok) {
+        metadataMap = (await response.json()) as MetadataMap
+      }
+    } catch {}
   }
 
-  const convertJsonToElement = () => {
-    return getImages().map((item, index: number) => (
-      <button
-        key={index}
-        className="mb-4 cursor-pointer"
-        onClick={launchLightbox}
-        aria-label={`Open lightbox for image of ${item.alt}`}
-      >
-        <Image
-          src={item.src}
-          alt={item.alt}
-          layout="intrinsic"
-          width={500}
-          height={500}
-          objectFit="cover"
-          className="rounded-sm"
-          loading="lazy"
-          data-fancybox
-          data-caption={item.caption || ''}
-        />
-      </button>
-    ))
-  }
+  const topLevelFolderNames = Array.from(
+    new Set(
+      allBlobs
+        .filter((blob) => IMAGE_FILE_PATTERN.test(blob.pathname))
+        .map((blob) => blob.pathname.split('/')[0])
+        .filter(Boolean)
+    )
+  )
+
+  const folders = topLevelFolderNames
+    .map(parseFolderInfo)
+    .sort((a, b) => a.sortWeight - b.sortWeight)
+
+  const folderLabelToFolderKey = new Map(
+    folders.map((folderInfo) => [folderInfo.displayLabel, folderInfo.folderKey])
+  )
+
+  const allFilterLabels = [
+    FILTER_LABEL_ALL,
+    ...folders.map((folderInfo) => folderInfo.displayLabel),
+  ]
+
+  const normalisedRequestedLabel = normaliseLabel(requestedFilterLabel)
+  const activeFilterLabel = allFilterLabels.includes(normalisedRequestedLabel)
+    ? normalisedRequestedLabel
+    : FILTER_LABEL_ALL
+
+  const allImageBlobs = allBlobs.filter((blob) =>
+    IMAGE_FILE_PATTERN.test(blob.pathname)
+  )
+
+  const filteredImages =
+    activeFilterLabel === FILTER_LABEL_ALL
+      ? allImageBlobs
+      : allImageBlobs.filter((blob) =>
+          blob.pathname.startsWith(
+            `${folderLabelToFolderKey.get(activeFilterLabel)}/`
+          )
+        )
+
+  const orderedImages = orderImagesByWeightWithShuffle(filteredImages)
+
+  const enrichedImages = orderedImages.map((image) => ({
+    ...image,
+    alt: metadataMap[image.pathname]?.alt ?? '',
+    caption: metadataMap[image.pathname]?.caption ?? '',
+  }))
 
   return (
     <div>
@@ -76,34 +147,18 @@ export default function Gallery() {
         imageSrc="/images/gallery-banner.jpg"
         imageAlt="wedding-4"
       />
-      <div className="px-6 sm:px-12 py-8 lg:text-lg flex flex-col justify-center text-center bg-olive text-amber-50">
+      <section className="px-6 sm:px-12 py-8 lg:text-lg flex flex-col justify-center text-center bg-olive text-amber-50">
         <div className="flex flex-row flex-wrap justify-center w-full gap-4 self-center pb-8">
-          {links.map((item, index: number) => (
-            <button
-              key={index}
-              className="transition text-xl lg:text-2xl cursor-default flex justify-center"
-              onClick={() => setActiveFilter(item.title)}
-            >
-              <div
-                className={`px-10 py-1 w-min text-amber-50 cursor-pointer hover:bg-amber-50/80 hover:text-olive rounded-3xl ${
-                  activeFilter === item.title
-                    ? 'bg-amber-50 text-olive'
-                    : 'bg-amber-50/10'
-                }`}
-              >
-                {item.title}
-              </div>
-            </button>
-          ))}
+          <GalleryFilter filters={allFilterLabels} active={activeFilterLabel} />
         </div>
-        <Masonry
-          breakpointCols={getBreakpointsAndCols}
-          className="masonry-grid"
-          columnClassName="masonry-grid__column"
-        >
-          {convertJsonToElement()}
-        </Masonry>
-      </div>
+        <InfiniteMasonry
+          key={activeFilterLabel}
+          images={enrichedImages}
+          initialCount={12}
+          step={12}
+          rootMargin="1000px"
+        />
+      </section>
     </div>
   )
 }
