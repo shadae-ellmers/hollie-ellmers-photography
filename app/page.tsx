@@ -3,10 +3,10 @@ import PageBanner from '@/components/PageBanner'
 import Image from 'next/image'
 
 const images = [
-  'wedding-1.jpeg',
-  'wedding-2.jpg',
-  'wedding-3.jpeg',
-  'wedding-4.jpeg',
+  'DANA+ANDREW-019.jpg',
+  'KAYLA+CHRIS-04.jpg',
+  'TYLA&ISAAC-450.jpg',
+  'MATERNITY-01(1).jpg',
 ]
 
 export default function Home() {
