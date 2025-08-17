@@ -14,15 +14,12 @@ export default function WeddingsService() {
             className="bg-amber-50/80 rounded-sm overflow-hidden text-olive relative h-full flex flex-col justify-between"
             key={index}
           >
-            <div className="text-left">
-              <div className="text-2xl flex flex-row flex-nowrap justify-between p-4">
-                {isMobile ? (
-                  <h3 className="pr-4">{item.label}</h3>
-                ) : (
-                  <h2 className="pr-4">{item.label}</h2>
-                )}
-                <h3>💍</h3>
-              </div>
+            <div className="text-left flex flex-col">
+              {isMobile ? (
+                <h3 className="pr-4 text-2xl p-4">{item.label}</h3>
+              ) : (
+                <h2 className="pr-4 text-2xl p-4">{item.label}</h2>
+              )}
               <ul className="p-4">
                 Includes:
                 {item.features.map((feature, index: number) => (
