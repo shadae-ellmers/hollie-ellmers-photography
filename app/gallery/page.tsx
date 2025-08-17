@@ -4,7 +4,7 @@ import InfiniteMasonry from '@/components/InfiniteMasonry'
 import { list } from '@vercel/blob'
 
 const IMAGE_FILE_PATTERN = /\.(jpe?g|png|gif|webp|avif|svg|tiff?)$/i
-
+const BASE_PREFIX = 'gallery/'
 const FILTER_LABEL_ALL = 'All'
 
 const capitalise = (text: string) =>
@@ -12,8 +12,12 @@ const capitalise = (text: string) =>
 
 const normaliseLabel = (text: string) => capitalise(text.trim().toLowerCase())
 
+const stripBase = (text: string) =>
+  text.startsWith(BASE_PREFIX) ? text.slice(BASE_PREFIX.length) : text
+
 const getImageWeight = (pathname: string) => {
-  const matchResult = pathname.match(/^[^/]+\/(\d{3,})-/)
+  const rel = stripBase(pathname)
+  const matchResult = rel.match(/^[^/]+\/(\d{3,})-/)
   return matchResult ? parseInt(matchResult[1], 10) : Number.POSITIVE_INFINITY
 }
 
@@ -75,11 +79,11 @@ export default async function Gallery({
     searchParam?.filter ?? FILTER_LABEL_ALL
   ).toString()
 
-  const { blobs: allBlobs } = await list()
+  const { blobs: allBlobs } = await list({ prefix: BASE_PREFIX })
 
   let metadataMap: MetadataMap = {}
-  const metadataBlob = allBlobs.find((blob) =>
-    blob.pathname.endsWith('metadata.json')
+  const metadataBlob = allBlobs.find(
+    (blob) => blob.pathname === `${BASE_PREFIX}metadata.json`
   )
   if (metadataBlob?.url) {
     try {
@@ -96,8 +100,8 @@ export default async function Gallery({
     new Set(
       allBlobs
         .filter((blob) => IMAGE_FILE_PATTERN.test(blob.pathname))
-        .map((blob) => blob.pathname.split('/')[0])
-        .filter(Boolean)
+        .map((blob) => stripBase(blob.pathname).split('/')[0])
+        .filter((seg) => !!seg && seg !== 'metadata.json')
     )
   )
 
@@ -128,7 +132,7 @@ export default async function Gallery({
       ? allImageBlobs
       : allImageBlobs.filter((blob) =>
           blob.pathname.startsWith(
-            `${folderLabelToFolderKey.get(activeFilterLabel)}/`
+            `${BASE_PREFIX}${folderLabelToFolderKey.get(activeFilterLabel)}/`
           )
         )
 
