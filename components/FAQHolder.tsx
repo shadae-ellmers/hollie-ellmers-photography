@@ -31,7 +31,7 @@ export default function FAQHolder() {
               key={index}
             >
               <button
-                className="flex flex-row justify-between flex-nowrap w-full cursor-pointer px-6 py-4 text-left"
+                className="flex flex-row justify-between flex-nowrap w-full cursor-pointer group px-6 py-4 text-left"
                 onClick={() => toggleFAQ(index)}
               >
                 {isMobile ? (
@@ -40,7 +40,7 @@ export default function FAQHolder() {
                   <h3 className="flex flex-col justify-center">{item.title}</h3>
                 )}
                 <div
-                  className={`fill-olive flex flex-col justify-center transition-transform duration-300 ${
+                  className={`fill-olive group-hover:bg-olive group-hover:fill-amber-50 group-focus:bg-olive group-focus:fill-amber-50 p-2 rounded-full flex flex-col justify-center transition-transform duration-300 ${
                     isActive ? 'rotate-45' : ''
                   }`}
                 >
