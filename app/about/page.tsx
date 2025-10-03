@@ -5,6 +5,21 @@ import PageBanner from '@/components/PageBanner'
 import Image from 'next/image'
 
 export default function About() {
+  const getAge = () => {
+    const today = new Date()
+    const birthDate = new Date('2001-07-07')
+
+    let age = today.getFullYear() - birthDate.getFullYear()
+    const monthDiff = today.getMonth() - birthDate.getMonth()
+    const dayDiff = today.getDate() - birthDate.getDate()
+
+    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+      age--
+    }
+
+    return age
+  }
+
   return (
     <div>
       <PageBanner
@@ -27,14 +42,14 @@ export default function About() {
             </div>
           </div>
           <p className="md:w-3/5 md:pl-8 lg:pl-12 pt-8 md:pt-0 relative">
-            My name is Hollie. I&apos;m 22 years old, a self-taught photographer
+            {`My name is Hollie. I'm ${getAge()} years old, a self-taught photographer
             and I began my own photography business a few years ago. I never had
             a clue what I wanted to be growing up. I thought I was destined to
             work jobs I hated until a few years ago I bought my first camera.
             Since then I have struggled to put it down and I have finally found
             what I want to do in life. I found my love for photography. I strive
             to grow and better my business so I can earn a living doing
-            something I truly love.
+            something I truly love.`}
           </p>
         </div>
         {/* faqs */}

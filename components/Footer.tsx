@@ -7,6 +7,8 @@ import FacebookIcon from './Icons/FacebookIcon'
 import InstagramIcon from './Icons/InstagramIcon'
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer className="">
       <div className="bg-olive text-amber-50 px-6 sm:px-12 py-8 flex flex-col md:flex-row justify-center sm:justify-between gap-10 sm:gap-5">
@@ -68,7 +70,7 @@ export default function Footer() {
       </div>
 
       <div className="flex flex-row flex-wrap px-6 sm:px-12 py-2 text-xs bg-amber-50">
-        <p>All content Copyright © 2025 Hollie Ellmers Photography</p>
+        <p>{`All content Copyright © ${currentYear} Hollie Ellmers Photography`}</p>
         <span aria-hidden="true" className="px-2">
           |
         </span>
