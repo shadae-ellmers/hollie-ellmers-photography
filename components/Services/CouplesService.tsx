@@ -1,17 +1,18 @@
 'use client'
 
 import couplesServices from '../../data/couplesServices.json'
-import useIsMobile from '../useIsMobile'
-
+import { getColumnProperties, useIsMobile } from '../Helpers'
 export default function CouplesService() {
   const isMobile = useIsMobile()
 
   return (
     <div className="flex flex-col justify-center max-w-[1400px] mx-auto">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pb-8 ">
+      <div
+        className={`grid ${getColumnProperties(couplesServices)} gap-5 pb-8`}
+      >
         {couplesServices.map((item, index: number) => (
           <div
-            className="bg-amber-50/80 rounded-sm overflow-hidden text-olive relative h-full flex flex-col justify-between"
+            className="bg-amber-50/80 w-[270px] lg:w-[300px] rounded-sm overflow-hidden text-olive relative h-full flex flex-col justify-between"
             key={index}
           >
             <div className="text-left flex flex-col">

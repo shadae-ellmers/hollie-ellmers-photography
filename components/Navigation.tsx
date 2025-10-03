@@ -6,7 +6,7 @@ import { useState } from 'react'
 import HamburgerIcon from './Icons/HamburgerIcon'
 import CloseIcon from './Icons/CloseIcon'
 import ArrowRightIcon from './Icons/ArrowRightIcon'
-import useIsMobile from './useIsMobile'
+import { useIsMobile } from './Helpers'
 
 const links = [
   { title: 'Home', link: '/' },

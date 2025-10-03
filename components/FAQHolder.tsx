@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import faqs from '../data/faqs.json'
 import PlusIcon from './Icons/PlusIcon'
-import useIsMobile from './useIsMobile'
+import { useIsMobile } from './Helpers'
 
 export default function FAQHolder() {
   const [activeFAQs, setActiveFAQs] = useState<number[]>([])
