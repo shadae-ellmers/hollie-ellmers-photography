@@ -28,9 +28,9 @@ export default function About() {
         imageAlt="wedding-1"
       />
       <div className="px-6 sm:px-12 py-8 sm:py-16 lg:text-lg lg:max-w-[1000px] w-full flex flex-col justify-centre mx-auto">
-        <div className="flex flex-col md:flex-row">
-          <div className="flex flex-row justify-center md:block md:w-2/5">
-            <div className="relative rounded-full w-auto max-w-[300px] md:max-w-[500px] aspect-square h-auto overflow-hidden md:float-right">
+        <div className="flex flex-row flex-wrap sm:flex-nowrap">
+          <div className="flex flex-row justify-center w-full sm:block sm:w-2/5">
+            <div className="relative w-full max-w-[200px] sm:max-w-[300px] h-auto overflow-hidden sm:float-right">
               <Image
                 src="/images/profile.jpg"
                 alt=""
@@ -41,7 +41,7 @@ export default function About() {
               />
             </div>
           </div>
-          <p className="md:w-3/5 md:pl-8 lg:pl-12 pt-8 md:pt-0 relative">
+          <p className="sm:w-3/5 sm:pl-8 lg:pl-12 pt-8 sm:pt-0 relative">
             {`My name is Hollie. I'm ${getAge()} years old, a self-taught photographer
             and I began my own photography business a few years ago. I never had
             a clue what I wanted to be growing up. I thought I was destined to
