@@ -34,7 +34,7 @@ export default function Footer() {
             aria-label="Send email"
           >
             <div
-              className="p-2 rounded-full fill-amber-50 hover:bg-amber-50 hover:fill-olive"
+              className="p-2 rounded-full fill-amber-50 hover:bg-amber-50 hover:fill-olive focus:bg-amber-50 focus:fill-olive"
               aria-hidden="true"
             >
               <EnvelopeIcon />
@@ -47,7 +47,7 @@ export default function Footer() {
             aria-label="Visit Facebook profile"
           >
             <div
-              className="p-2 rounded-full fill-amber-50 hover:bg-amber-50 hover:fill-olive"
+              className="p-2 rounded-full fill-amber-50 hover:bg-amber-50 hover:fill-olive focus:bg-amber-50 focus:fill-olive"
               aria-hidden="true"
             >
               <FacebookIcon />
@@ -60,7 +60,7 @@ export default function Footer() {
             aria-label="Visit Instagram profile"
           >
             <div
-              className="p-2 rounded-full fill-amber-50 hover:bg-amber-50 hover:fill-olive"
+              className="p-2 rounded-full fill-amber-50 hover:bg-amber-50 hover:fill-olive focus:bg-amber-50 focus:fill-olive"
               aria-hidden="true"
             >
               <InstagramIcon />

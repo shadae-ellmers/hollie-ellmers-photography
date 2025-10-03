@@ -39,7 +39,7 @@ export default function Carousel() {
     <div className="embla overflow-hidden pt-8 pb-16">
       <div className="flex flex-row justify-center mb-8">
         <button
-          className="embla__prev fill-olive hover:bg-olive hover:fill-amber-50 p-3 rounded-full cursor-pointer"
+          className="embla__prev fill-olive hover:bg-olive hover:fill-amber-50 focus:bg-olive focus:fill-amber-50 p-3 rounded-full cursor-pointer"
           onClick={scrollPrev}
         >
           <div aria-hidden="true">
@@ -51,7 +51,7 @@ export default function Carousel() {
           WEDDINGS
         </h2>
         <button
-          className="embla__next fill-olive hover:bg-olive hover:fill-amber-50 p-3 rounded-full cursor-pointer"
+          className="embla__next fill-olive hover:bg-olive hover:fill-amber-50 focus:bg-olive focus:fill-amber-50 p-3 rounded-full cursor-pointer"
           onClick={scrollNext}
         >
           <div aria-hidden="true">

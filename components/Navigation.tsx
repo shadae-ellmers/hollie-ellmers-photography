@@ -44,7 +44,7 @@ export default function Navigation() {
                 href={`${item.link}`}
                 className="text-amber-50 transition text-2xl lg:w-1/5 cursor-default flex flex-row justify-center"
               >
-                <div className="px-10 py-1 w-min border-amber-50/30 cursor-pointer hover:bg-amber-50/80 hover:text-olive rounded-3xl">
+                <div className="px-10 py-1 w-min border-amber-50/30 cursor-pointer hover:bg-amber-50/80 hover:text-olive focus:bg-amber-50/80 focus:text-olive rounded-3xl">
                   {item.title}
                 </div>
               </Link>
@@ -72,7 +72,7 @@ export default function Navigation() {
             )}
             <button
               onClick={toggleMenu}
-              className="text-amber-50 hover:bg-olive p-2 rounded-full cursor-pointer"
+              className="text-amber-50 hover:bg-olive focus:bg-olive p-2 rounded-full cursor-pointer"
               aria-label="Open menu menu"
             >
               <HamburgerIcon />
@@ -90,7 +90,7 @@ export default function Navigation() {
       >
         <button
           onClick={toggleMenu}
-          className="absolute top-4 right-6 text-xl font-bold text-amber-50 hover:text-olive p-2 rounded-full hover:bg-amber-50 cursor-pointer"
+          className="absolute top-4 right-6 text-xl font-bold text-amber-50 hover:text-olive hover:bg-amber-50 focus:text-olive focus:bg-amber-50 p-2 rounded-full cursor-pointer"
           aria-label="Close menu menu"
         >
           <CloseIcon />
@@ -104,11 +104,11 @@ export default function Navigation() {
             >
               <Link
                 href={`${item.link}`}
-                className="text-amber-50 text-xl transition flex flex-col justify-center group-hover:text-amber-50/80"
+                className="text-amber-50 text-xl transition flex flex-col justify-center group-hover:text-amber-50/80 group-focus:text-amber-50/80"
               >
                 {item.title}
               </Link>
-              <div className="fill-amber-50 transition-transform duration-300 group-hover:translate-x-3">
+              <div className="fill-amber-50 transition-transform duration-300 group-hover:translate-x-3 group-focus:translate-x-3">
                 <ArrowRightIcon />
               </div>
             </div>
