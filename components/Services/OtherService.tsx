@@ -6,7 +6,8 @@ export default function OtherService() {
   return (
     <div className="max-w-[1400px] mx-auto">
       <p className="text-left pb-8">
-        Looking for a different kind of shoot? Reach out with some details.
+        If you have any enquiries that do not fit within these categories please
+        contact me with the details and we can discuss further!
       </p>
       <a
         href="/contact"

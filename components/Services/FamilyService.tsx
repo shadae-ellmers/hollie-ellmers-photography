@@ -16,12 +16,15 @@ export default function CouplesService() {
           >
             <div className="text-left flex flex-col">
               {isMobile ? (
-                <h3 className="pr-4 text-2xl p-4">{item.label}</h3>
+                <h3 className="pr-4 text-2xl p-4">
+                  {item.label ? item.label : 'Classic Package'}
+                </h3>
               ) : (
-                <h2 className="pr-4 text-2xl p-4">{item.label}</h2>
+                <h2 className="pr-4 text-2xl p-4">
+                  {item.label ? item.label : 'Classic Package'}
+                </h2>
               )}
               <ul className="p-4">
-                Includes:
                 {item.features.map((feature, index: number) => (
                   <li key={index}>{feature}</li>
                 ))}
