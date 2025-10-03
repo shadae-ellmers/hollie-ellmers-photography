@@ -1,10 +1,14 @@
 [
   {
     "title": "Is there a travel surcharge?",
-    "content": "There is 1 hour of travel accomodated for in all packages. If your location requires longer than 1 hour total for travel, there is an surcharge of $50 per hour."
+    "content": "There is 1 hour of travel accomodated for in all packages. If your location requires longer than 1 hour total for travel, there is an surcharge of $50 per hour. However, compensation for accommodation may also be required with prior discussion."
   },
   {
-    "title": "Can I book a longer shoot?",
-    "content": "Of course. Additional time is charged at $300 per hour."
+    "title": "Do you require a deposit for your wedding photography?",
+    "content": "Yes, I require a 25% deposit to secure your booking, with the remainder due 14 days prior to the wedding."
+  },
+  {
+    "title": "How do I receive my images?",
+    "content": "You will receive your gallery through a private online gallery ready to be downloaded to your desired device."
   }
 ]
