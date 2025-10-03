@@ -1,5 +1,6 @@
 import Carousel from '@/components/Carousel'
 import PageBanner from '@/components/PageBanner'
+import { Metadata } from 'next'
 import Image from 'next/image'
 
 const images = [
@@ -8,6 +9,11 @@ const images = [
   'TYLA&ISAAC-450.jpg',
   'MATERNITY-01(1).jpg',
 ]
+
+export const metadata: Metadata = {
+  title: 'Home | Hollie Ellmers Photography',
+  description: '...',
+}
 
 export default function Home() {
   return (

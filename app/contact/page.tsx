@@ -1,7 +1,11 @@
-'use client'
-
 import ContactForm from '@/components/ContactForm'
 import PageBanner from '@/components/PageBanner'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contact | Hollie Ellmers Photography',
+  description: '...',
+}
 
 export default function Contact() {
   return (

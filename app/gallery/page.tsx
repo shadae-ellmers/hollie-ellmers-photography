@@ -2,6 +2,7 @@ import PageBanner from '@/components/PageBanner'
 import GalleryFilter from '@/components/GalleryFilter'
 import InfiniteMasonry from '@/components/InfiniteMasonry'
 import { list } from '@vercel/blob'
+import { Metadata } from 'next'
 
 const IMAGE_FILE_PATTERN = /\.(jpe?g|png|gif|webp|avif|svg|tiff?)$/i
 const BASE_PREFIX = 'gallery/'
@@ -68,6 +69,11 @@ const orderImagesByWeightWithShuffle = <T extends { pathname: string }>(
 }
 
 type MetadataMap = Record<string, { alt?: string; caption?: string }>
+
+export const metadata: Metadata = {
+  title: 'Gallery | Hollie Ellmers Photography',
+  description: '...',
+}
 
 export default async function Gallery({
   searchParams,

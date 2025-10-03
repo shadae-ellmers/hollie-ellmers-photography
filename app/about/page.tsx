@@ -1,8 +1,12 @@
-'use client'
-
 import FAQHolder from '@/components/FAQHolder'
 import PageBanner from '@/components/PageBanner'
+import { Metadata } from 'next'
 import Image from 'next/image'
+
+export const metadata: Metadata = {
+  title: 'About | Hollie Ellmers Photography',
+  description: '...',
+}
 
 export default function About() {
   const getAge = () => {
