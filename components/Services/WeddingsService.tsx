@@ -28,7 +28,9 @@ export default function WeddingsService() {
               )}
               <ul className="p-4">
                 {item.features.map((feature, index: number) => (
-                  <li key={index}>{feature}</li>
+                  <li key={index} className="mb-2">
+                    {feature}
+                  </li>
                 ))}
               </ul>
             </div>
