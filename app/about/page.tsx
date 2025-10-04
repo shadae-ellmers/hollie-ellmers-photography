@@ -4,8 +4,21 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: 'About | Hollie Ellmers Photography',
-  description: '...',
+  title: 'About Hollie Ellmers | Wellington & NZ Photographer',
+  description:
+    "I'm Hollie, a Wellington photographer passionate about creating authentic, artistic images. I travel across New Zealand to capture your special moments.",
+  openGraph: {
+    title: 'About Hollie Ellmers | Wellington & NZ Photographer',
+    description:
+      "I'm Hollie, a Wellington photographer passionate about creating authentic, artistic images. I travel across New Zealand to capture your special moments.",
+    url: 'https://www.hollieellmers.photography/about/',
+    images: [
+      {
+        url: '...',
+      },
+    ],
+    type: 'website',
+  },
 }
 
 export default function About() {

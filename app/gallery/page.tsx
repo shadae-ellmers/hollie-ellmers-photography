@@ -45,8 +45,21 @@ const parseFolderInfo = (folderName: string) => {
 type MetadataMap = Record<string, { alt?: string; caption?: string }>
 
 export const metadata: Metadata = {
-  title: 'Gallery | Hollie Ellmers Photography',
-  description: '...',
+  title: 'Portfolio | Hollie Ellmers | Photographer NZ',
+  description:
+    'Explore my photography portfolio, featuring weddings, portraits, and events captured across New Zealand with artistry and heart.',
+  openGraph: {
+    title: 'Portfolio | Hollie Ellmers | Photographer NZ',
+    description:
+      'Explore my photography portfolio, featuring weddings, portraits, and events captured across New Zealand with artistry and heart.',
+    url: 'https://www.hollieellmers.photography/gallery/',
+    images: [
+      {
+        url: '...',
+      },
+    ],
+    type: 'website',
+  },
 }
 
 export default async function Gallery({

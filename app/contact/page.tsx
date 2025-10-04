@@ -3,8 +3,21 @@ import PageBanner from '@/components/PageBanner'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Contact | Hollie Ellmers Photography',
-  description: '...',
+  title: 'Contact | Hollie Ellmers | Photographer NZ',
+  description:
+    "Let's create something unforgettable. Contact Wellington photographer Hollie Ellmers to book a session anywhere in New Zealand.",
+  openGraph: {
+    title: 'Contact | Hollie Ellmers | Photographer NZ',
+    description:
+      "Let's create something unforgettable. Contact Wellington photographer Hollie Ellmers to book a session anywhere in New Zealand.",
+    url: 'https://www.hollieellmers.photography/contact/',
+    images: [
+      {
+        url: '...',
+      },
+    ],
+    type: 'website',
+  },
 }
 
 export default function Contact() {

@@ -1,6 +1,7 @@
 import Carousel from '@/components/Carousel'
 import PageBanner from '@/components/PageBanner'
 import { Metadata } from 'next'
+import { headers } from 'next/headers'
 import Image from 'next/image'
 
 const images = [
@@ -11,8 +12,21 @@ const images = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Home | Hollie Ellmers Photography',
-  description: '...',
+  title: 'Hollie Ellmers | Wellington & NZ Photographer',
+  description:
+    'Wellington-based photographer Hollie Ellmers capturing weddings, portraits, and events across New Zealand. Timeless, creative photography for your story.',
+  openGraph: {
+    title: 'Hollie Ellmers | Wellington & NZ Photographer',
+    description:
+      'Wellington-based photographer Hollie Ellmers capturing weddings, portraits, and events across New Zealand. Timeless, creative photography for your story.',
+    url: 'https://www.hollieellmers.photography/',
+    images: [
+      {
+        url: '...',
+      },
+    ],
+    type: 'website',
+  },
 }
 
 export default function Home() {
