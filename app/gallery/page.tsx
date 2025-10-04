@@ -16,12 +16,6 @@ const normaliseLabel = (text: string) => capitalise(text.trim().toLowerCase())
 const stripBase = (text: string) =>
   text.startsWith(BASE_PREFIX) ? text.slice(BASE_PREFIX.length) : text
 
-const getImageWeight = (pathname: string) => {
-  const rel = stripBase(pathname)
-  const matchResult = rel.match(/^[^/]+\/(\d{3,})-/)
-  return matchResult ? parseInt(matchResult[1], 10) : Number.POSITIVE_INFINITY
-}
-
 const shuffleArray = <T,>(items: T[]): T[] => {
   const shuffled = items.slice()
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -46,26 +40,6 @@ const parseFolderInfo = (folderName: string) => {
     displayLabel: capitalise(rawLabel),
     sortWeight: parseInt(weightString, 10),
   }
-}
-
-const orderImagesByWeightWithShuffle = <T extends { pathname: string }>(
-  images: T[]
-): T[] => {
-  const imagesByWeight = new Map<number, T[]>()
-  for (const image of images) {
-    const weight = getImageWeight(image.pathname)
-    const bucket = imagesByWeight.get(weight) ?? []
-    bucket.push(image)
-    imagesByWeight.set(weight, bucket)
-  }
-  const weightsSortedAscending = Array.from(imagesByWeight.keys()).sort(
-    (a, b) => a - b
-  )
-  const ordered: T[] = []
-  for (const weight of weightsSortedAscending) {
-    ordered.push(...shuffleArray(imagesByWeight.get(weight)!))
-  }
-  return ordered
 }
 
 type MetadataMap = Record<string, { alt?: string; caption?: string }>
@@ -142,9 +116,9 @@ export default async function Gallery({
           )
         )
 
-  const orderedImages = orderImagesByWeightWithShuffle(filteredImages)
+  const shuffledImages = shuffleArray(filteredImages)
 
-  const enrichedImages = orderedImages.map((image) => ({
+  const enrichedImages = shuffledImages.map((image) => ({
     ...image,
     alt: metadataMap[image.pathname]?.alt ?? '',
     caption: metadataMap[image.pathname]?.caption ?? '',
