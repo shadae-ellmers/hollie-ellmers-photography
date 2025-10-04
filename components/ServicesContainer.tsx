@@ -50,7 +50,10 @@ export default function ServicesContainer() {
         imageAlt="wedding-5"
       />
       <div className="px-6 sm:px-12 py-8 lg:text-lg flex flex-col justify-center text-center bg-olive text-amber-50">
-        <div className="flex flex-row flex-wrap justify-center w-full gap-4 self-center pb-8">
+        <div
+          aria-label="Filters"
+          className="flex flex-row flex-wrap justify-center w-full gap-4 self-center pb-8"
+        >
           {services.map((title: string, index: number) => {
             return (
               <button
