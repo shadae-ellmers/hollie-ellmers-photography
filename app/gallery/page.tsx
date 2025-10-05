@@ -2,6 +2,7 @@ import PageBanner from '@/components/PageBanner'
 import GalleryFilter from '@/components/GalleryFilter'
 import InfiniteMasonry from '@/components/InfiniteMasonry'
 import { list } from '@vercel/blob'
+import { Metadata } from 'next'
 
 const IMAGE_FILE_PATTERN = /\.(jpe?g|png|gif|webp|avif|svg|tiff?)$/i
 const BASE_PREFIX = 'gallery/'
@@ -14,12 +15,6 @@ const normaliseLabel = (text: string) => capitalise(text.trim().toLowerCase())
 
 const stripBase = (text: string) =>
   text.startsWith(BASE_PREFIX) ? text.slice(BASE_PREFIX.length) : text
-
-const getImageWeight = (pathname: string) => {
-  const rel = stripBase(pathname)
-  const matchResult = rel.match(/^[^/]+\/(\d{3,})-/)
-  return matchResult ? parseInt(matchResult[1], 10) : Number.POSITIVE_INFINITY
-}
 
 const shuffleArray = <T,>(items: T[]): T[] => {
   const shuffled = items.slice()
@@ -47,27 +42,25 @@ const parseFolderInfo = (folderName: string) => {
   }
 }
 
-const orderImagesByWeightWithShuffle = <T extends { pathname: string }>(
-  images: T[]
-): T[] => {
-  const imagesByWeight = new Map<number, T[]>()
-  for (const image of images) {
-    const weight = getImageWeight(image.pathname)
-    const bucket = imagesByWeight.get(weight) ?? []
-    bucket.push(image)
-    imagesByWeight.set(weight, bucket)
-  }
-  const weightsSortedAscending = Array.from(imagesByWeight.keys()).sort(
-    (a, b) => a - b
-  )
-  const ordered: T[] = []
-  for (const weight of weightsSortedAscending) {
-    ordered.push(...shuffleArray(imagesByWeight.get(weight)!))
-  }
-  return ordered
-}
+type MetadataMap = Record<string, { alt?: string }>
 
-type MetadataMap = Record<string, { alt?: string; caption?: string }>
+export const metadata: Metadata = {
+  title: 'Portfolio | Hollie Ellmers | Photographer NZ',
+  description:
+    'Explore my photography portfolio, featuring weddings, portraits, and events captured across New Zealand with artistry and heart.',
+  openGraph: {
+    title: 'Portfolio | Hollie Ellmers | Photographer NZ',
+    description:
+      'Explore my photography portfolio, featuring weddings, portraits, and events captured across New Zealand with artistry and heart.',
+    url: 'https://www.hollieellmers.photography/gallery/',
+    images: [
+      {
+        url: '/images/gallery-banner.jpg',
+      },
+    ],
+    type: 'website',
+  },
+}
 
 export default async function Gallery({
   searchParams,
@@ -136,12 +129,11 @@ export default async function Gallery({
           )
         )
 
-  const orderedImages = orderImagesByWeightWithShuffle(filteredImages)
+  const shuffledImages = shuffleArray(filteredImages)
 
-  const enrichedImages = orderedImages.map((image) => ({
+  const enrichedImages = shuffledImages.map((image) => ({
     ...image,
     alt: metadataMap[image.pathname]?.alt ?? '',
-    caption: metadataMap[image.pathname]?.caption ?? '',
   }))
 
   return (
@@ -149,10 +141,13 @@ export default async function Gallery({
       <PageBanner
         title="Gallery"
         imageSrc="/images/gallery-banner.jpg"
-        imageAlt="wedding-4"
+        imageAlt="A bride and groom kiss in a sunflower field. The bride wears a white dress and veil, whilst the groom wears a light shirt. Bright sunflowers surround them, creating a romantic, natural setting."
       />
       <section className="px-6 sm:px-12 py-8 lg:text-lg flex flex-col justify-center text-center bg-olive text-amber-50">
-        <div className="flex flex-row flex-wrap justify-center w-full gap-4 self-center pb-8">
+        <div
+          aria-label="Filters"
+          className="flex flex-row flex-wrap justify-center w-full gap-4 self-center pb-8"
+        >
           <GalleryFilter filters={allFilterLabels} active={activeFilterLabel} />
         </div>
         <InfiniteMasonry

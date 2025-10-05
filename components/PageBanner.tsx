@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import useIsMobile from './useIsMobile'
+import { useIsMobile } from './Helpers'
 
 type PageBannerProps = {
   title: string

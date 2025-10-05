@@ -7,7 +7,6 @@ type GalleryImage = {
   pathname: string
   url: string
   alt?: string
-  caption?: string
 }
 
 type InfiniteMasonryProps = {
