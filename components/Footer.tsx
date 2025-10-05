@@ -4,7 +4,6 @@ import Link from 'next/link'
 import LocationIcon from './Icons/LocationIcon'
 import EnvelopeIcon from './Icons/EnvelopeIcon'
 import FacebookIcon from './Icons/FacebookIcon'
-import InstagramIcon from './Icons/InstagramIcon'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -51,19 +50,6 @@ export default function Footer() {
               aria-hidden="true"
             >
               <FacebookIcon />
-            </div>
-          </a>
-          <a
-            href="#"
-            className="flex flex-col justify-center"
-            target="_blank"
-            aria-label="Visit Instagram profile"
-          >
-            <div
-              className="p-2 rounded-full fill-amber-50 hover:bg-amber-50 hover:fill-olive focus:bg-amber-50 focus:fill-olive"
-              aria-hidden="true"
-            >
-              <InstagramIcon />
             </div>
           </a>
         </div>

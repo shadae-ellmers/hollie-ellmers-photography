@@ -47,7 +47,7 @@ export default function ServicesContainer() {
       <PageBanner
         title="Services"
         imageSrc="/images/services-banner.jpg"
-        imageAlt="wedding-5"
+        imageAlt="Four men in light grey suits lift another man horizontally in a garden, all smiling and laughing."
       />
       <div className="px-6 sm:px-12 py-8 lg:text-lg flex flex-col justify-center text-center bg-olive text-amber-50">
         <div

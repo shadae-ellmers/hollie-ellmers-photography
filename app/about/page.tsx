@@ -42,7 +42,7 @@ export default function About() {
       <PageBanner
         title="About me"
         imageSrc="/images/about-banner.jpg"
-        imageAlt="wedding-1"
+        imageAlt="A calm coastal scene at sunset with gentle waves and a hillside on the right."
       />
       <div className="px-6 sm:px-12 py-8 sm:py-16 lg:text-lg lg:max-w-[1000px] w-full flex flex-col justify-centre mx-auto">
         <div className="flex flex-row flex-wrap sm:flex-nowrap">
@@ -50,7 +50,7 @@ export default function About() {
             <div className="relative w-full max-w-[200px] sm:max-w-[300px] h-auto overflow-hidden sm:float-right">
               <Image
                 src="/images/profile.jpg"
-                alt=""
+                alt="Photographer with long brown hair in a black outfit, holding a Canon camera against a dark background."
                 className=""
                 width={500}
                 height={500}

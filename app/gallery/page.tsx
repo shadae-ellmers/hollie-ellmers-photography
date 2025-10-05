@@ -42,7 +42,7 @@ const parseFolderInfo = (folderName: string) => {
   }
 }
 
-type MetadataMap = Record<string, { alt?: string; caption?: string }>
+type MetadataMap = Record<string, { alt?: string }>
 
 export const metadata: Metadata = {
   title: 'Portfolio | Hollie Ellmers | Photographer NZ',
@@ -134,7 +134,6 @@ export default async function Gallery({
   const enrichedImages = shuffledImages.map((image) => ({
     ...image,
     alt: metadataMap[image.pathname]?.alt ?? '',
-    caption: metadataMap[image.pathname]?.caption ?? '',
   }))
 
   return (
@@ -142,7 +141,7 @@ export default async function Gallery({
       <PageBanner
         title="Gallery"
         imageSrc="/images/gallery-banner.jpg"
-        imageAlt="wedding-4"
+        imageAlt="A bride and groom kiss in a sunflower field. The bride wears a white dress and veil, whilst the groom wears a light shirt. Bright sunflowers surround them, creating a romantic, natural setting."
       />
       <section className="px-6 sm:px-12 py-8 lg:text-lg flex flex-col justify-center text-center bg-olive text-amber-50">
         <div

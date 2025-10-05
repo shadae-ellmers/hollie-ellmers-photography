@@ -26,7 +26,7 @@ export default function Contact() {
       <PageBanner
         title="Get in touch"
         imageSrc="/images/contact-banner.jpg"
-        imageAlt="wedding-1"
+        imageAlt="A bride and groom smile joyfully as confetti is thrown over them during an outdoor wedding ceremony, surrounded by happy guests. The bride holds a bouquet and the groom wears a light grey suit."
       />
       <style>{'.grecaptcha-badge { visibility: visible; }'}</style>
       <div className="px-6 sm:px-12 py-8 sm:py-16 lg:text-lg lg:max-w-[1000px] w-full flex flex-col justify-centre mx-auto">
