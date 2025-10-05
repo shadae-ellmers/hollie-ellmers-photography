@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     url: 'https://www.hollieellmers.photography/',
     images: [
       {
-        url: '...',
+        url: '/images/home-banner.jpg',
       },
     ],
     type: 'website',

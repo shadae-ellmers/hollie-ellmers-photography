@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     url: 'https://www.hollieellmers.photography/gallery/',
     images: [
       {
-        url: '...',
+        url: '/images/gallery-banner.jpg',
       },
     ],
     type: 'website',

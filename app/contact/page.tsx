@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: 'https://www.hollieellmers.photography/contact/',
     images: [
       {
-        url: '...',
+        url: '/images/contact-banner.jpg',
       },
     ],
     type: 'website',
