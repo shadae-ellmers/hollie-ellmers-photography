@@ -1,27 +1,10 @@
 [
   { 
-    "label": "Premium Package",
-    "features": [ 
-      "10 hours of wedding coverage",
-      "Complementary engagement session",
-      "Minimum 750 digital images"
+    "label": "",
+    "features": [
+      "Rate is per hour",
+      "T&Cs apply"
      ],
-     "price": 2750
-  },
-  { 
-    "label": "Classic Package",
-    "features": [ 
-      "5 hours of wedding coverage",
-      "Minimum 375 digital images"
-     ],
-     "price": 1500
-  },
-  { 
-    "label": "Basic Package",
-    "features": [ 
-      "3 hours of wedding coverage",
-      "Minimum 225 digital images"
-     ],
-     "price": 1000
+     "price": 300
   }
 ]

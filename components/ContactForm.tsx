@@ -143,7 +143,7 @@ export default function ContactForm() {
           <input
             type="submit"
             value="Submit"
-            className="mt-4 px-10 py-1 w-min self-center cursor-pointer border-2 border-olive bg-olive text-amber-50 hover:bg-amber-50 hover:text-olive rounded-3xl text-2xl"
+            className="mt-4 px-10 py-1 w-min self-center cursor-pointer border-2 border-olive bg-olive text-amber-50 hover:bg-amber-50 hover:text-olive focus:bg-amber-50 focus:text-olive rounded-3xl text-2xl"
           />
           <div className={`self-center ${!showSuccess ? 'hidden' : ''}`}>
             <p>

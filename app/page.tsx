@@ -1,6 +1,8 @@
 import Carousel from '@/components/Carousel'
 import PageBanner from '@/components/PageBanner'
+import { Metadata } from 'next'
 import Image from 'next/image'
+import { list } from '@vercel/blob'
 
 const images = [
   'DANA+ANDREW-019.jpg',
@@ -9,13 +11,70 @@ const images = [
   'MATERNITY-01(1).jpg',
 ]
 
-export default function Home() {
+const imagesAlt = [
+  "Three pairs of elegant women's shoes and a jewelled necklace are arranged on a beige carpet in front of white gift bags filled with flower bouquets and name tags. Light streams in from the background.",
+  'A couple kneels in a sunlit park, smiling at a black dog between them.',
+  'Bride and groom holding hands on a wooden bridge by a rustic shed and pond, surrounded by greenery.',
+  'Smiling pregnant woman in a black dress stands by rocky shore with wind blowing her hair.',
+]
+
+const IMAGE_FILE_PATTERN = /\.(jpe?g|png|gif|webp|avif|svg|tiff?)$/i
+const BASE_PREFIX = 'carousel/'
+
+export const metadata: Metadata = {
+  title: 'Hollie Ellmers | Wellington & NZ Photographer',
+  description:
+    'Wellington-based photographer Hollie Ellmers capturing weddings, portraits, and events across New Zealand. Timeless, creative photography for your story.',
+  openGraph: {
+    title: 'Hollie Ellmers | Wellington & NZ Photographer',
+    description:
+      'Wellington-based photographer Hollie Ellmers capturing weddings, portraits, and events across New Zealand. Timeless, creative photography for your story.',
+    url: 'https://www.hollieellmers.photography/',
+    images: [
+      {
+        url: '/images/home-banner.jpg',
+      },
+    ],
+    type: 'website',
+  },
+}
+
+type MetadataMap = Record<string, { alt?: string }>
+
+export default async function Home() {
+  const { blobs: allBlobs } = await list({ prefix: BASE_PREFIX })
+
+  const allImageBlobs = allBlobs.filter((blob) =>
+    IMAGE_FILE_PATTERN.test(blob.pathname)
+  )
+
+  let metadataMap: MetadataMap = {}
+
+  const metadataBlob = allBlobs.find(
+    (blob) => blob.pathname === `${BASE_PREFIX}metadataCarousel.json`
+  )
+  if (metadataBlob?.url) {
+    try {
+      const response = await fetch(metadataBlob.url, {
+        next: { revalidate: 300 },
+      })
+      if (response.ok) {
+        metadataMap = (await response.json()) as MetadataMap
+      }
+    } catch {}
+  }
+
+  const enrichedImages = allImageBlobs.map((image) => ({
+    ...image,
+    alt: metadataMap[image.pathname]?.alt ?? '',
+  }))
+
   return (
     <div>
       <PageBanner
         title="Hollie Ellmers Photography"
         imageSrc="/images/home-banner.jpg"
-        imageAlt="wedding-1"
+        imageAlt="Bride and groom kiss by a rustic wooden cabin next to a pond and lush greenery."
       />
 
       {/* Block one: content */}
@@ -31,7 +90,7 @@ export default function Home() {
       </div>
 
       {/* Block two: portrait image carousel */}
-      <Carousel />
+      <Carousel images={enrichedImages} />
 
       {/* Block three: testimony */}
       <div className="px-6 sm:px-12 py-8 bg-olive text-amber-50 text-center flex flex-col justify-center items-center">
@@ -55,7 +114,7 @@ export default function Home() {
             >
               <Image
                 src={`/images/${img}`}
-                alt={`wedding ${index + 1}`}
+                alt={imagesAlt[index]}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
