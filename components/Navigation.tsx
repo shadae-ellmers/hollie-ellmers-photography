@@ -42,9 +42,9 @@ export default function Navigation() {
               <Link
                 key={index}
                 href={`${item.link}`}
-                className="text-amber-50 transition text-2xl lg:w-1/5 cursor-default flex flex-row justify-center"
+                className="text-amber-50 transition text-2xl lg:w-1/5 cursor-default flex flex-row justify-center group"
               >
-                <div className="px-10 py-1 w-min border-amber-50/30 cursor-pointer hover:bg-amber-50/80 hover:text-olive focus:bg-amber-50/80 focus:text-olive rounded-3xl">
+                <div className="px-10 py-1 w-min border-amber-50/30 cursor-pointer group-hover:bg-amber-50/80 group-hover:text-olive group-focus:bg-amber-50/80 group-focus:text-olive rounded-3xl">
                   {item.title}
                 </div>
               </Link>

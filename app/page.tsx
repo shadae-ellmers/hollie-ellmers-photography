@@ -78,15 +78,12 @@ export default async function Home() {
       />
 
       {/* Block one: content */}
-      <div className="px-6 sm:px-12 py-8 lg:text-lg">
+      <div className="px-6 sm:px-12 py-8 lg:text-lg flex flex-col justify-center text-center gap-4 bg-olive text-amber-50">
         <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
-          et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-          felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
-          consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
-          nec, vulputate eget, arcu.
+          Capturing real moments, real people, and every story worth
+          remembering.
         </p>
+        <p>Based in Wellington, available New Zealand wide.</p>
       </div>
 
       {/* Block two: portrait image carousel */}

@@ -59,10 +59,10 @@ export default function ServicesContainer() {
               <button
                 onClick={() => displayDetails(index)}
                 key={index}
-                className="transition text-xl lg:text-2xl cursor-default flex justify-center"
+                className="transition text-xl lg:text-2xl cursor-default flex justify-center group"
               >
                 <div
-                  className={`px-10 py-1 w-min text-amber-50 cursor-pointer hover:bg-amber-50/80 hover:text-olive focus:bg-amber-50/80 focus:text-olive rounded-3xl ${
+                  className={`px-10 py-1 w-min text-amber-50 cursor-pointer group-hover:bg-amber-50/80 group-hover:text-olive group-focus:bg-amber-50/80 group-focus:text-olive rounded-3xl ${
                     activeService === index + 1
                       ? 'bg-amber-50 text-olive'
                       : 'bg-amber-50/10'

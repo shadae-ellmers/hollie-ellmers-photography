@@ -34,12 +34,12 @@ export default function GalleryFilter({ filters, active }: Props) {
         <button
           key={label}
           type="button"
-          className="transition text-lg lg:text-xl flex justify-center cursor-pointer"
+          className="transition text-lg lg:text-xl flex justify-center cursor-pointer group"
           onClick={() => setFilter(label)}
           aria-pressed={active === label}
         >
           <div
-            className={`px-10 py-1 w-min rounded-3xl hover:bg-amber-50/80 hover:text-olive focus:bg-amber-50/80 focus:text-olive ${
+            className={`px-10 py-1 w-min rounded-3xl group-hover:bg-amber-50/80 group-hover:text-olive group-focus:bg-amber-50/80 group-focus:text-olive ${
               active === label
                 ? 'bg-amber-50 text-olive'
                 : 'bg-amber-50/10 text-amber-50'
