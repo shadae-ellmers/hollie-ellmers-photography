@@ -25,7 +25,7 @@ export default function PageBanner({
           alt={imageAlt}
           fill
           style={{ objectFit: 'cover' }}
-          priority
+          priority={true}
         />
         {/* Soft Overlay */}
         <div className="absolute inset-0 bg-black/50"></div>

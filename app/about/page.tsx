@@ -59,14 +59,12 @@ export default function About() {
             </div>
           </div>
           <p className="sm:w-3/5 sm:pl-8 lg:pl-12 pt-8 sm:pt-0 relative">
-            {`My name is Hollie. I'm ${getAge()} years old, a self-taught photographer
-            and I began my own photography business a few years ago. I never had
-            a clue what I wanted to be growing up. I thought I was destined to
-            work jobs I hated until a few years ago I bought my first camera.
-            Since then I have struggled to put it down and I have finally found
-            what I want to do in life. I found my love for photography. I strive
-            to grow and better my business so I can earn a living doing
-            something I truly love.`}
+            {`Nice to meet you, I am Hollie! I'm a ${getAge()} year old, self-taught photographer 
+            based in the Wellington region. I never had a clue what I wanted to be growing up. 
+            I thought I was destined to work a standard job until I bought my first camera. 
+            Since then I have struggled to put it down and I have finally found what I want 
+            to do in life. I found my love for photography. I strive to grow and better my 
+            business so I can earn a living doing something I truly love.`}
           </p>
         </div>
         {/* faqs */}
