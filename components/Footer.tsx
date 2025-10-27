@@ -28,12 +28,12 @@ export default function Footer() {
         <div className="md:w-1/3 flex flex-row justify-center gap-6">
           <a
             href="mailto:hollieellmersphotography@gmail.com"
-            className="flex flex-col justify-center"
+            className="flex flex-col justify-center group"
             target="_blank"
             aria-label="Send email"
           >
             <div
-              className="p-2 rounded-full fill-amber-50 hover:bg-amber-50 hover:fill-olive focus:bg-amber-50 focus:fill-olive"
+              className="p-2 rounded-full fill-amber-50 group-hover:bg-amber-50 group-hover:fill-olive group-focus:bg-amber-50 group-focus:fill-olive"
               aria-hidden="true"
             >
               <EnvelopeIcon />
@@ -41,12 +41,12 @@ export default function Footer() {
           </a>
           <a
             href="https://www.facebook.com/HollieWinterPhotography/"
-            className="flex flex-col justify-center"
+            className="flex flex-col justify-center group"
             target="_blank"
             aria-label="Visit Facebook profile"
           >
             <div
-              className="p-2 rounded-full fill-amber-50 hover:bg-amber-50 hover:fill-olive focus:bg-amber-50 focus:fill-olive"
+              className="p-2 rounded-full fill-amber-50 group-hover:bg-amber-50 group-hover:fill-olive group-focus:bg-amber-50 group-focus:fill-olive"
               aria-hidden="true"
             >
               <FacebookIcon />
