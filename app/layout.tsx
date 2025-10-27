@@ -4,6 +4,7 @@ import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -38,6 +39,7 @@ export default function RootLayout({
         <main className="text-olive text-md">{children}</main>
         <Footer />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
