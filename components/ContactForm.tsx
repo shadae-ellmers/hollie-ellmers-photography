@@ -62,7 +62,7 @@ export default function ContactForm() {
               placeholder="John Smith"
               type="text"
               name="name"
-              className="border-2 border-olive rounded-sm w-full lg:w-1/2 py-2 px-4"
+              className="border-2 border-olive rounded-sm w-full max-w-[450px] py-2 px-4"
               required
             />
           </div>
@@ -73,7 +73,7 @@ export default function ContactForm() {
               placeholder="john.smith@gmail.com"
               type="email"
               name="email"
-              className="border-2 border-olive rounded-sm w-full lg:w-1/2 py-2 px-4"
+              className="border-2 border-olive rounded-sm w-full max-w-[450px] py-2 px-4"
               required
             />
           </div>
@@ -82,7 +82,7 @@ export default function ContactForm() {
             <select
               id="enquiry"
               name="enquiry"
-              className="border-2 border-olive rounded-sm w-full lg:w-1/2 py-2 px-4"
+              className="border-2 border-olive rounded-sm w-full max-w-[450px] py-2 px-4"
               required
               defaultValue=""
             >
@@ -103,7 +103,7 @@ export default function ContactForm() {
               placeholder="Wellington"
               type="text"
               name="location"
-              className="border-2 border-olive rounded-sm w-full lg:w-1/2 py-2 px-4"
+              className="border-2 border-olive rounded-sm w-full max-w-[450px] py-2 px-4"
             />
           </div>
           <div className="flex flex-row items-center justify-center gap-1">
@@ -127,7 +127,7 @@ export default function ContactForm() {
               id="date"
               type="date"
               name="date"
-              className="border-2 border-olive rounded-sm w-full lg:w-1/2 py-2 px-4"
+              className="border-2 border-olive rounded-sm w-full max-w-[450px] py-2 px-4"
             />
           </div>
           <div className="flex flex-col items-center gap-1">
@@ -136,7 +136,7 @@ export default function ContactForm() {
               id="message"
               placeholder="Let me know the details..."
               name="message"
-              className="border-2 border-olive rounded-sm w-full lg:w-1/2 py-2 px-4 h-50"
+              className="border-2 border-olive rounded-sm w-full max-w-[450px] py-2 px-4 h-50"
               required
             />
           </div>
