@@ -41,9 +41,13 @@ export default function FAQHolder() {
                 onClick={() => toggleFAQ(index)}
               >
                 {isMobile ? (
-                  <h4 className="flex flex-col justify-center">{item.title}</h4>
+                  <h4 className="flex flex-col justify-center mt-auto mb-auto">
+                    {item.title}
+                  </h4>
                 ) : (
-                  <h3 className="flex flex-col justify-center">{item.title}</h3>
+                  <h3 className="flex flex-col justify-center mt-auto mb-auto">
+                    {item.title}
+                  </h3>
                 )}
                 <div
                   className={`fill-olive group-hover:bg-olive group-hover:fill-amber-50 group-focus:bg-olive group-focus:fill-amber-50 p-2 rounded-full flex flex-col justify-center transition-transform duration-300 ${
