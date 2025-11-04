@@ -12,7 +12,7 @@ export default function CouplesService() {
       >
         {couplesServices.map((item, index: number) => (
           <div
-            className="bg-amber-50/80 w-[270px] lg:w-[300px] rounded-sm overflow-hidden text-olive relative h-full flex flex-col justify-between"
+            className="bg-amber-50/80 w-[270px] lg:w-[300px] rounded-sm overflow-hidden text-olive relative flex flex-col justify-between"
             key={index}
           >
             <div className="text-left flex flex-col">
