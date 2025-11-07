@@ -39,7 +39,7 @@ export default function ContactForm() {
   }
 
   const handleRecaptcha = useCallback(
-    async (e: React.FormEvent) => {
+    async (e: FormEvent) => {
       e.preventDefault()
 
       if (!executeRecaptcha) return
@@ -55,7 +55,7 @@ export default function ContactForm() {
     [executeRecaptcha]
   )
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
     handleRecaptcha(e)
       .then(() => {
@@ -88,7 +88,7 @@ export default function ContactForm() {
             type="text"
             name="name"
             className="border-2 border-olive rounded-sm w-full max-w-[450px] py-2 px-4"
-            // required
+            required
           />
         </div>
         <div className="flex flex-col items-center gap-1">
@@ -99,7 +99,7 @@ export default function ContactForm() {
             type="email"
             name="email"
             className="border-2 border-olive rounded-sm w-full max-w-[450px] py-2 px-4"
-            // required
+            required
           />
         </div>
         <div className="flex flex-col items-center gap-1">
@@ -108,7 +108,7 @@ export default function ContactForm() {
             id="enquiry"
             name="enquiry"
             className="border-2 border-olive rounded-sm w-full max-w-[450px] py-2 px-4"
-            // required
+            required
             defaultValue=""
           >
             <option disabled value="">
@@ -162,7 +162,7 @@ export default function ContactForm() {
             placeholder="Let me know the details..."
             name="message"
             className="border-2 border-olive rounded-sm w-full max-w-[450px] py-2 px-4 h-50"
-            // required
+            required
           />
         </div>
         <input
